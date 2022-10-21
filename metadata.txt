@@ -3,7 +3,7 @@
 name=regulargrid
 qgisMinimumVersion=3.0
 description=this plugin builds regular grid of point by select line and exports it in different formats.
-version=version 0.3.10.20200601
+version=0.3.10 build 20221021.5
 ; end of mandatory metadata
 
 ; start of optional metadata
