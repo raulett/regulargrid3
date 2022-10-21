@@ -1,0 +1,33 @@
+; the next section is mandatory
+[general]
+name=regulargrid
+qgisMinimumVersion=3.0
+description=this plugin builds regular grid of point by select line and exports it in different formats.
+version=version 0.3.10.20200601
+; end of mandatory metadata
+
+; start of optional metadata
+changelog=
+
+; tags are in comma separated value format, spaces are allowed
+tags=regular points
+
+; these metadata can be empty
+; in a future version of the web application it will
+; be probably possible to create a project on redmine
+; if they are not filled
+
+homepage=
+tracker=
+repository=https://github.com/raulett/regulargrid
+icon=icons/reggrid.png
+
+; experimental flag
+experimental=False
+
+; deprecated flag (applies to the whole plugin and not only to the uploaded version)
+deprecated=False
+
+# Author contact information
+author=Vladimir Morozov
+email=raulett@gmail.com

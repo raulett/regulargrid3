@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>bindElevationDialog</class>
+ <widget class="QDialog" name="bindElevationDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>247</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Bind Elevation</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>210</y>
+     <width>341</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel</set>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="rasterLayer">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>20</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>204</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Слой - источник данных</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Канал</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="rasterBand">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>120</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>0</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="vectorLayer">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Слой назначения</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="destinationField">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>110</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>204</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Поле назначения</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>23</x>
+     <y>140</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Прибавить к значению</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="additionValue">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>140</y>
+     <width>59</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>-999.990000000000009</double>
+   </property>
+   <property name="maximum">
+    <double>999.990000000000009</double>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="processOnlySelected">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>193</y>
+     <width>414</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Обрабатывать только выделенные объекты</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="processOnlyNull">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>414</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Обрабатывать только объекты, где поле назначения не определено</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bindElevationButton">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>210</y>
+     <width>75</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Bind</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>bindElevationDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>bindElevationDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
