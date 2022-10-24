@@ -1,38 +1,17 @@
 <RCC>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/select1line.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
+    <qresource prefix="/plugins/regulargrid3" >
         <file>icons/select1line_v2.png</file>
     </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/orthopoint.png</file>
+    <qresource prefix="/plugins/regulargrid3" >
+        <file>icons/reggrid.png</file>
     </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/importGPX.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/exportpoints.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/importpoints.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/AME_icon.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/bindToNewLine.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
+    <qresource prefix="/plugins/regulargrid3" >
         <file>icons/elevation_icon.png</file>
     </qresource>
-    <qresource prefix="/plugins/regulargrid" >
-        <file>icons/reggridPolygon.png</file>
-    </qresource>
-    <qresource prefix="/plugins/regulargrid" >
+    <qresource prefix="/plugins/regulargrid3" >
         <file>icons/DFM.png</file>
     </qresource>
-<!--        <qresource prefix="/plugins/regulargrid" >-->
-<!--        <file>icons/fPoint.png</file>-->
-<!--    </qresource>-->
+    <qresource prefix="/plugins/RousettusTool" >
+        <file>icons/warning.png</file>
+    </qresource>
 </RCC>

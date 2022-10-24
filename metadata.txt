@@ -1,9 +1,9 @@
 ; the next section is mandatory
 [general]
-name=regulargrid
+name=regulargrid3
 qgisMinimumVersion=3.0
 description=this plugin builds regular grid of point by select line and exports it in different formats.
-version=0.3.10 build 20221021.5
+version=0.3.10 build 20221024.62
 ; end of mandatory metadata
 
 ; start of optional metadata
@@ -19,7 +19,7 @@ tags=regular points
 
 homepage=
 tracker=
-repository=https://github.com/raulett/regulargrid
+repository=https://github.com/raulett/regulargrid3
 icon=icons/reggrid.png
 
 ; experimental flag

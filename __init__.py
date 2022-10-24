@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 
 
 def name():
-    return "RegularGrid"
+    return "RegularGrid3"
 
 
 def description():
@@ -19,7 +19,7 @@ def qgisMinimumVersion():
 
 
 def qgisMaximumVersion():
-    return "3.10"
+    return "3.26"
 
 
 def authorName():
@@ -27,7 +27,7 @@ def authorName():
 
 
 def icon():
-    return "icons/orthopoint.png"
+    return "icons/reggrid.png"
 
 
 def classFactory(iface):

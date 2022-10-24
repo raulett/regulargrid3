@@ -66,7 +66,7 @@ class GetLineTool(QgsMapTool):
                 self.r_band.show()
                 if self.debug:
                     print("GetLineTool, line_points type: {}".format(type(line_points[0])))
-                point_and_azimuth = (line_points[0], line_points[0].azimuth(line_points[1]))
+                point_and_azimuth = (self.layer, line_points[0], line_points[0].azimuth(line_points[1]))
                 # tg = (line_points[0].y() - line_points[1].y())/(line_points[0].x() - line_points[1].x())
                 # if self.debug:
                 #     print("GetLineTool, tg = {}".format(tg))
