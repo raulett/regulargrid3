@@ -1,0 +1,2 @@
+from MakeRegularPoints_ui import Ui_RegularPointsDialog
+class MakeRegularPoints_handle(Ui_RegularPointsDialog)
