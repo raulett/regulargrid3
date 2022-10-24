@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>261</height>
+    <width>442</width>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,7 +113,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="picNum">
+        <widget class="QSpinBox" name="pkNum">
          <property name="maximum">
           <number>1000</number>
          </property>
@@ -203,7 +203,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>36</height>
+       <height>105</height>
       </size>
      </property>
     </spacer>
@@ -283,7 +283,7 @@
   <tabstop>lineEdit</tabstop>
   <tabstop>firstPR</tabstop>
   <tabstop>firstPK</tabstop>
-  <tabstop>picNum</tabstop>
+  <tabstop>pkNum</tabstop>
   <tabstop>proNum</tabstop>
   <tabstop>dX</tabstop>
   <tabstop>dY</tabstop>

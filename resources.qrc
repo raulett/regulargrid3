@@ -11,7 +11,7 @@
     <qresource prefix="/plugins/regulargrid3" >
         <file>icons/DFM.png</file>
     </qresource>
-    <qresource prefix="/plugins/RousettusTool" >
+    <qresource prefix="/plugins/regulargrid3" >
         <file>icons/warning.png</file>
     </qresource>
 </RCC>

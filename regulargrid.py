@@ -7,8 +7,8 @@ from qgis.PyQt.QtWidgets import QAction
 
 from .src.tools.GetLineTool import GetLineTool
 from .src.UI.MakeRegularPoints.MakeRegularPointsHandle import MakeRegularPointsHandle
+from .src.UI.BindElevation.BindElevationHandle import BindElevationHandle
 
-# import webbrowser
 import os.path
 from .resources import *
 
@@ -23,6 +23,7 @@ class RegularGrid:
 
     def __init__(self, iface):
         # Save reference to the QGIS interface
+        self.elevation_dlg = None
         self.grid_azimuth = None
         self.source_point = None
         self.regulargrid_making_window_handler = None
@@ -132,19 +133,26 @@ class RegularGrid:
             msg.exec()
         else:
             if not isinstance(self.regulargrid_making_window_handler, MakeRegularPointsHandle):
+                self.unset_map_tool()
                 self.regulargrid_making_window_handler = MakeRegularPointsHandle(self.chosen_layer,
                                                                                  self.source_point,
                                                                                  self.grid_azimuth)
+                self.current_tool.line_found_signl.connect(self.regulargrid_making_window_handler.got_new_data_slt)
+                self.current_tool.decline_signal.connect(self.regulargrid_making_window_handler.showNormal)
+                self.regulargrid_making_window_handler.get_map_tool_sgnl.connect(self.set_map_tool)
             else:
-                self.regulargrid_making_window_handler.got_layer = self.chosen_layer
-                self.regulargrid_making_window_handler.source_point = self.source_point
-                self.regulargrid_making_window_handler.reggrid_azimuth = self.grid_azimuth
-                self.regulargrid_making_window_handler.init_gui()
+                self.regulargrid_making_window_handler.renew_layer_data(self.chosen_layer,
+                                                                        self.source_point,
+                                                                        self.grid_azimuth)
             self.regulargrid_making_window_handler.show()
 
     # TODO make set elevation window call
     def set_elevation(self):
-        pass
+        if not isinstance(self.elevation_dlg, BindElevationHandle):
+            self.elevation_dlg = BindElevationHandle()
+        else:
+            self.elevation_dlg.init_gui()
+        self.elevation_dlg.show()
 
     # TODO make drone flight mission window call
     def make_drone_flight_mission(self):
@@ -152,6 +160,9 @@ class RegularGrid:
 
     def unset_map_tool(self):
         self.canvas.unsetMapTool(self.current_tool)
+
+    def set_map_tool(self):
+        self.canvas.setMapTool(self.current_tool)
 
     def got_baseline(self, line_data):
         if self.debug:

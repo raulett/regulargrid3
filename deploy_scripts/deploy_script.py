@@ -62,16 +62,16 @@ for file in files_to_copy:
         os.mkdir(os.path.dirname(target_path))
     shutil.copy(file, target_path)
 
-#
-# result_file = open("counter.txt", 'a')
-# counter = 0
-# for file in files_to_copy:
-#     curr_file = open(file, 'rb')
-#     data = curr_file.read()
-#     counter += len(data)
-#     curr_file.close()
-#
-# result_file.write('{}\t{}\n'.format(datetime.datetime.now().strftime("%d.%m.%YT%H:%M:%S"), counter))
-# result_file.close()
+
+result_file = open("counter.txt", 'a')
+counter = 0
+for file in files_to_copy:
+    curr_file = open(file, 'rb')
+    data = curr_file.read()
+    counter += len(data)
+    curr_file.close()
+
+result_file.write('{}\t{}\n'.format(datetime.datetime.now().strftime("%d.%m.%YT%H:%M:%S"), counter))
+result_file.close()
 
 get_app_version.get_app_version()
