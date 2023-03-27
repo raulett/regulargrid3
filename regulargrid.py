@@ -8,6 +8,7 @@ from qgis.PyQt.QtWidgets import QAction
 from .src.tools.GetLineTool import GetLineTool
 from .src.UI.MakeRegularPoints.MakeRegularPointsHandle import MakeRegularPointsHandle
 from .src.UI.BindElevation.BindElevationHandle import BindElevationHandle
+from .src.UI.MakeFlights.MakeFlightsHandle import MakeFlightsHandle
 
 import os.path
 from .resources import *
@@ -30,6 +31,7 @@ class RegularGrid:
         self.chosen_layer = None
         self.current_tool = None
         self.toolBar = None
+        self.plan_flight_dialog = None
         self.iface = iface
         self.canvas = self.iface.mapCanvas()
         # initialize plugin directory
@@ -156,7 +158,11 @@ class RegularGrid:
 
     # TODO make drone flight mission window call
     def make_drone_flight_mission(self):
-        pass
+        if not isinstance(self.plan_flight_dialog, MakeFlightsHandle):
+            self.plan_flight_dialog = MakeFlightsHandle()
+        else:
+            self.plan_flight_dialog.init_gui()
+        self.plan_flight_dialog.show()
 
     def unset_map_tool(self):
         self.canvas.unsetMapTool(self.current_tool)

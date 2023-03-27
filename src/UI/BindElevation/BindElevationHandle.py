@@ -1,18 +1,16 @@
 from .BindElevation_ui import Ui_bindElevationDialog
-from ...tools.ServiceFunctions.LayersHandling import get_vector_layers
+from ...tools.ServiceFunctions.LayersHandling import get_layers_list
 from ...tools.ServiceFunctions.resolve import resolve
-from ...tools.ServiceFunctions.DataFromRasterWorkerObj import DataFromRasterWorkerObj
+from ...tools.SpatialData.DataFromRasterWorkerObj import DataFromRasterWorkerObj
 
-from qgis.core import QgsProject, QgsRasterLayer, QgsVectorLayer
+from qgis.core import QgsProject, QgsRasterLayer, QgsVectorLayer, QgsWkbTypes
 
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtGui import QPixmap
 
-from ....resources import *
-
 
 class BindElevationHandle(Ui_bindElevationDialog, QDialog):
-    debug = 1
+    debug = 0
 
     def __init__(self):
         super().__init__()
@@ -34,11 +32,12 @@ class BindElevationHandle(Ui_bindElevationDialog, QDialog):
         self.rasterBand.clear()
         self.vectorLayer.clear()
         self.destinationField.clear()
-        vector_layers = get_vector_layers(QgsVectorLayer)
-        raster_layers = get_vector_layers(QgsRasterLayer)
+        points_vector_layers = get_layers_list(QgsVectorLayer,
+                                               vector_layer_type=QgsWkbTypes.GeometryType.PointGeometry)
+        raster_layers = get_layers_list(QgsRasterLayer)
         for raster_layer in raster_layers:
             self.rasterLayer.addItem(raster_layer.name(), raster_layer)
-        for vector_layer in vector_layers:
+        for vector_layer in points_vector_layers:
             self.vectorLayer.addItem(vector_layer.name(), vector_layer)
 
     def bind_elevation_btn(self):

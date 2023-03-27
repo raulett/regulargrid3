@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_RegularPointsDialog(object):
     def setupUi(self, RegularPointsDialog):
         RegularPointsDialog.setObjectName("RegularPointsDialog")
-        RegularPointsDialog.resize(444, 337)
+        RegularPointsDialog.resize(442, 330)
         self.verticalLayout = QtWidgets.QVBoxLayout(RegularPointsDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.groupBox = QtWidgets.QGroupBox(RegularPointsDialog)
@@ -100,12 +100,13 @@ class Ui_RegularPointsDialog(object):
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_2)
         self.dY = QtWidgets.QDoubleSpinBox(RegularPointsDialog)
+        self.dY.setMaximum(10000.0)
         self.dY.setProperty("value", 50.0)
         self.dY.setObjectName("dY")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.dY)
         self.horizontalLayout.addLayout(self.formLayout)
         self.verticalLayout.addLayout(self.horizontalLayout)
-        spacerItem = QtWidgets.QSpacerItem(20, 112, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 105, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
