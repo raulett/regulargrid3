@@ -9,6 +9,8 @@ from ...tools.WAYPOINT_TYPES import WAYPOINT_TYPES
 from qgis.core import QgsVectorLayer, QgsWkbTypes, QgsProject, QgsCoordinateReferenceSystem, \
     QgsCoordinateTransform
 
+from PyQt5.QtWidgets import QMessageBox
+
 
 class MakeFlightsHandle(Ui_makeRegularFlightForm, QDialog):
     debug = 1
@@ -29,6 +31,7 @@ class MakeFlightsHandle(Ui_makeRegularFlightForm, QDialog):
         reg_grid_points_layers = get_layers_list(QgsVectorLayer,
                                                  vector_layer_type=QgsWkbTypes.GeometryType.PointGeometry,
                                                  field_names=['order_num', 'elevation'])
+        self.regular_points_layer.clear()
         for reggrid_layer in reg_grid_points_layers:
             self.regular_points_layer.addItem(reggrid_layer.name(), reggrid_layer)
 
@@ -39,7 +42,12 @@ class MakeFlightsHandle(Ui_makeRegularFlightForm, QDialog):
         generated_str_waypoints = self.generate_waypoint_file(f_points)
         if self.debug:
             print(generated_str_waypoints)
-        self.save_generated_waypoints(generated_str_waypoints, self.regular_points_layer.currentData().name())
+        output_file = self.save_generated_waypoints(generated_str_waypoints, self.regular_points_layer.currentData().name())
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText(f"Flight plan created in {output_file}")
+        msg.setWindowTitle("Flight plan created")
+        msg.exec_()
 
     def generate_flight(self, to_point_alt, flight_alt):
         reg_points_layer = self.regular_points_layer.currentData()
@@ -119,6 +127,7 @@ class MakeFlightsHandle(Ui_makeRegularFlightForm, QDialog):
 
         with open(os.sep.join([current_waypoints_path, current_file_name]), 'w') as file:
             file.write(generated_str_waypoints)
+        return os.sep.join([current_waypoints_path, current_file_name])
 
 
     def cancel_button_handle(self):

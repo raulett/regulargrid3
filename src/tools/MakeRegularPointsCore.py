@@ -1,5 +1,7 @@
 from .SpatialData.RegularGridVectorLayer import RegularGridVectorLayer
 from qgis.core import QgsGeometry, QgsPointXY, QgsFeature, QgsProject
+from ..tools.VectorLayerSaverGPKG import VectorLayerSaverGPKG
+import os
 
 class MakeRegularPointsCore:
     def __init__(self, layer_name,
@@ -40,9 +42,18 @@ class MakeRegularPointsCore:
         self.layer.commitChanges()
         self.layer.updateExtents()
 
-    def add_layer_to_canvas(self):
-        QgsProject.instance().addMapLayer(self.layer)
-        return self.layer
+    def persist_layer_to_canvas(self):
+        vector_saver = VectorLayerSaverGPKG()
+        group_node = vector_saver.init_group_tree(['flights', 'regular_points'])
+        path_to_project = QgsProject.instance().homePath()
+        output_layer = vector_saver.init_layer_to_file(os.sep.join([path_to_project,
+                                                                            'flights',
+                                                                            'reggrid3_flight_plan',
+                                                                            'reggrid_points.gpkg']),
+                                                       self.layer)
+        QgsProject.instance().addMapLayer(output_layer, False)
+        group_node.insertLayer(0, output_layer)
+        return output_layer
 
 
 

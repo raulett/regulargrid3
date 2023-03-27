@@ -123,6 +123,7 @@ class Ui_RegularPointsDialog(object):
         self.btnAdd.setObjectName("btnAdd")
         self.horizontalLayout_10.addWidget(self.btnAdd)
         self.btnAddElev = QtWidgets.QPushButton(RegularPointsDialog)
+        self.btnAddElev.setEnabled(False)
         self.btnAddElev.setObjectName("btnAddElev")
         self.horizontalLayout_10.addWidget(self.btnAddElev)
         self.horizontalLayout_11.addLayout(self.horizontalLayout_10)

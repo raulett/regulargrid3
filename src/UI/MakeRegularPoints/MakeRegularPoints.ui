@@ -246,6 +246,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btnAddElev">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Add and elevation</string>
            </property>

@@ -104,6 +104,7 @@ class Ui_bindElevationDialog(object):
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
         self.pushButton_2 = QtWidgets.QPushButton(bindElevationDialog)
+        self.pushButton_2.setEnabled(False)
         self.pushButton_2.setObjectName("pushButton_2")
         self.horizontalLayout_2.addWidget(self.pushButton_2)
         self.bindElevationButton = QtWidgets.QPushButton(bindElevationDialog)

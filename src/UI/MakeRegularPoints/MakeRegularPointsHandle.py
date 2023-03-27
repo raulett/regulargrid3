@@ -72,7 +72,7 @@ class MakeRegularPointsHandle(Ui_RegularPointsDialog, QDialog):
                                                     self.reggrid_azimuth,
                                                     self.got_layer.crs())
         make_regular_points.generate_points()
-        make_regular_points.add_layer_to_canvas()
+        make_regular_points.persist_layer_to_canvas()
         self.hide()
 
 
